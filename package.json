@@ -1,0 +1,53 @@
+{
+  "name": "dsh-memory-md",
+  "version": "1.0.0",
+  "description": "极简 Markdown 长期记忆 for DeepSeek Harness(dsh)：中文可搜、人类可直接编辑、不依赖 web。Minimal Markdown memory for dsh — CJK-friendly substring search, hand-editable file, no web surface required.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "memory",
+    "long-term-memory",
+    "markdown",
+    "cjk",
+    "chinese"
+  ],
+  "license": "MIT",
+  "author": "zero",
+  "scripts": {
+    "test": "node test/run.mjs",
+    "prepack": "node test/run.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-system-prompt": ">=0.1.0-rc.6 <0.2.0",
+    "@deepseek-ai/dsh-tools": ">=0.1.0-rc.2 <0.2.0"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

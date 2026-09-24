@@ -1,0 +1,18 @@
+# dsh-memory-md bundle patch
+#
+# 一行 insert：把插件挂进 profile 的插件树。
+#   id   —— 必须与入口文件导出的 cordis `name` 一致（'memory-md'）
+#   name —— 必须写【包名】，由 profile 的 node_modules 解析到 lib/index.js
+#           （开发期可以用绝对路径替代）
+# 需要改默认值时，在 profile 自己的 cordis.patch.yml 里用 id 定向覆盖：
+#   - id: memory-md
+#     config:
+#       path: !!js dshHomePath('memory/MEMORY.md')
+- insert:
+    - id: memory-md
+      name: 'dsh-memory-md'
+      config:
+        path: !!js dshHomePath('memory/MEMORY.md')
+        maxInjectChars: 3000
+        searchLimit: 20
+        order: 50
