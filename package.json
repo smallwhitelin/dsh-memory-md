@@ -31,7 +31,7 @@
   "license": "MIT",
   "author": "zero",
   "scripts": {
-    "test": "node test/run.mjs",
+    "test": "node --import ./test/loader-hook.mjs test/run.mjs",
     "prepack": "node test/run.mjs"
   },
   "dsh": {
@@ -40,15 +40,12 @@
     }
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "^4.0.1",
-    "@deepseek-ai/dsh-system-prompt": ">=0.0.1-rc.1 <0.2.0",
-    "@deepseek-ai/dsh-tools": ">=0.0.1-rc.1 <0.2.0"
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-system-prompt": "*",
+    "@deepseek-ai/dsh-tools": "*"
   },
   "dependencies": {
     "@deepseek-ai/schemastery": "^3.18.1"
-  },
-  "devDependencies": {
-    "@deepseek-ai/dsh-tools": "0.0.1-rc.1"
   },
   "publishConfig": {
     "access": "public"

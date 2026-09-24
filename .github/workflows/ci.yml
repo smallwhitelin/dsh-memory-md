@@ -16,9 +16,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      # --legacy-peer-deps：核心包在 peerDependencies 里（由宿主 dsh 提供），
-      # 裸 npm install 会在 peer 解析上崩（"Cannot read properties of null (reading 'children')"）；
-      # 测试实际 import 的那份由 devDependencies 提供。
+      # 宿主包（@deepseek-ai/dsh-tools 等）由 dsh 本体提供，不随插件分发；
+      # 测试里若找不到真包会自动回落到 test/ 下的最小桩（见 test/resolve-host-stub.mjs）。
+      # --legacy-peer-deps：npm 11 的 arborist 在某些 peer 组合上会崩
+      # （"Cannot read properties of null (reading 'children')"）。
       - name: Install dependencies
         run: npm install --no-audit --no-fund --legacy-peer-deps
       - name: Test
