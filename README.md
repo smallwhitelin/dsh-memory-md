@@ -44,10 +44,6 @@ dsh plugin --profile <你的 profile> add dsh-memory-md
 
 **方式 C —— 手写 profile 的 `cordis.patch.yml`**
 
-```bash
-dsh plugin --profile <你的 profile> add dsh-memory-md
-```
-
 ```yaml
 - insert:
     - id: memory-md
