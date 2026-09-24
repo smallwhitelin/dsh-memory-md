@@ -16,5 +16,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install --no-audit --no-fund
-      - run: npm test
+      # --legacy-peer-deps：绕开 npm arborist 在 peer 解析上的崩溃
+      # （报错形如 "Cannot read properties of null (reading 'children')"）
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --legacy-peer-deps
+      # 核心包是 peerDependency（由宿主 dsh 提供），CI 里显式装一份用于 import
+      - name: Install peer used by the test
+        run: npm install --no-save --legacy-peer-deps '@deepseek-ai/dsh-tools@>=0.0.1-rc.1 <0.2.0'
+      - name: Test
+        run: npm test
