@@ -5,6 +5,7 @@
 极简长期记忆插件：**中文能搜、Markdown 可直接编辑、不依赖 web**。
 
 [![npm](https://img.shields.io/npm/v/dsh-memory-md)](https://www.npmjs.com/package/dsh-memory-md)
+[![CI](https://github.com/smallwhitelin/dsh-memory-md/actions/workflows/ci.yml/badge.svg)](https://github.com/smallwhitelin/dsh-memory-md/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![repo](https://img.shields.io/badge/github-smallwhitelin%2Fdsh-memory-md-blue)](https://github.com/smallwhitelin/dsh-memory-md)
 
