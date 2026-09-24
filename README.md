@@ -6,6 +6,7 @@
 
 [![npm](https://img.shields.io/npm/v/dsh-memory-md)](https://www.npmjs.com/package/dsh-memory-md)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![repo](https://img.shields.io/badge/github-smallwhitelin%2Fdsh-memory-md-blue)](https://github.com/smallwhitelin/dsh-memory-md)
 
 ---
 
@@ -29,11 +30,23 @@ dsh 本体不带记忆插件；社区插件大多走 SQLite FTS5 或需要 web �
 
 ## 安装 / Install
 
+**方式 A —— 直接从 GitHub（不需要任何账号）**
+
+```bash
+dsh plugin --profile <你的 profile> add github:smallwhitelin/dsh-memory-md
+```
+
+**方式 B —— npm（发布后）**
+
 ```bash
 dsh plugin --profile <你的 profile> add dsh-memory-md
 ```
 
-或在 profile 的 `cordis.patch.yml` 里手写：
+**方式 C —— 手写 profile 的 `cordis.patch.yml`**
+
+```bash
+dsh plugin --profile <你的 profile> add dsh-memory-md
+```
 
 ```yaml
 - insert:
