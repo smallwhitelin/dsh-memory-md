@@ -101,9 +101,24 @@ dsh plugin --profile <你的 profile> add dsh-memory-md
 
 ## 兼容性 / Compatibility
 
-- Node ≥ 24（dsh 本身的硬要求）；零运行时依赖（只用 `node:fs`/`node:path`）；
-- 不联网、不起子进程、不写任何数据库；
-- **不依赖 web 表面** —— 纯 IM profile（如 `@dsh-feishu/dsh-feishu`）可直接使用。
+| 项 | 要求 |
+|---|---|
+| dsh | `>=0.2.2-rc.1 <0.3.0`（已在 **dsh 0.2.2-rc.1** 实测通过） |
+| Node | ≥ 24（dsh 本身的硬要求） |
+| 宿主包 | `@deepseek-ai/dsh-tools`、`@deepseek-ai/dsh-system-prompt`、`@deepseek-ai/cordis`（由 dsh 提供，不随插件分发） |
+
+实测项（0.2.2-rc.1，headless profile + 真实模型链路）：
+
+- 插件挂载：`dsh --dump-config` 中出现 `memory-md` 条目，无版本告警；
+- 工具注册：`memory_add` / `memory_replace` / `memory_remove` / `memory_search` 全部可用，
+  写入后立刻检索能命中，内容真实落盘到 `$DSH_HOME/memory/MEMORY.md`；
+- 提示词注入：`ctx.systemPrompt` 生效，文件里的记忆会出现在下一轮系统提示中。
+
+其他说明：零运行时依赖（只用 `node:fs`/`node:path`）；不联网、不起子进程、不写任何数据库；
+**不依赖 web 表面** —— 纯 IM profile（如 `@dsh-feishu/dsh-feishu`）可直接使用。
+
+> 0.1.x 的 dsh 不在此兼容范围内：dsh 0.2 调整了插件宿主要求的校验方式，
+> 旧版本装载本插件会在启动时被拒绝。需要 0.1.x 请用 1.0.x 之前的版本。
 
 ## 卸载 / Uninstall
 
