@@ -67,7 +67,7 @@ dsh plugin --profile <你的 profile> add dsh-memory-md
 
 - 用户习惯用中文回复
 - 用户最喜欢的颜色是墨绿色
-- 部署机 workspace 是 /home/zero/workspace
+- 示例：项目根在 ~/workspace
 ```
 
 - **直接用编辑器改**：加一行、删一行、改一句话都行，**下一轮对话立刻生效**（每轮重新读文件）；
